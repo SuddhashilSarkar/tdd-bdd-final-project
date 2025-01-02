@@ -33,6 +33,7 @@ from service import app
 from service.common import status
 from service.models import db, init_db, Product
 from tests.factories import ProductFactory
+from service.models import Category
 
 # Disable all but critical errors during normal test run
 # uncomment for debugging failing tests
@@ -164,9 +165,6 @@ class TestProductRoutes(TestCase):
         response = self.client.post(BASE_URL, data={}, content_type="plain/text")
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
-    #
-    # ADD YOUR TEST CASES HERE
-    #
 
     def test_get_product(self):
         """It should Get a single Product"""
